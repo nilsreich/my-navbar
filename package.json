@@ -1,19 +1,25 @@
 {
   "name": "mwc-appbar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Appbar WebComponent",
   "main": "build/my-navbar.js",
   "browser": "build/my-navbar.js",
   "module": "src/my-navbar.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc -p tsconfig.json",
+    "build": "npx tsc",
     "bundle": "rollup -c"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nilsreich/my-navbar.git"
   },
+  "keywords": [
+    "appbar",
+    "webcomponents",
+    "web components",
+    "custom elements"
+  ],
   "author": "Nils <nilsreich@gmail.com>",
   "license": "MIT",
   "bugs": {

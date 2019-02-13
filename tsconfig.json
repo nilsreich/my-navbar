@@ -5,14 +5,16 @@
     "moduleResolution": "node",
     "lib": ["es2017", "dom"],
     "strict": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
   "input": [
     "/src/*.ts"
-  ],
-  "exclude": [],
+  ]
 }
