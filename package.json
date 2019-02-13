@@ -1,15 +1,28 @@
 {
-  "name": "AppTopBar",
+  "name": "mwc-appbar",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Appbar WebComponent",
+  "main": "build/my-navbar.js",
+  "browser": "build/my-navbar.js",
+  "module": "src/my-navbar.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -p tsconfig.json && rollup -c"
   },
-  "author": "Nils",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nilsreich/my-navbar.git"
+  },
+  "author": "Nils <nilsreich@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nilsreich/my-navbar/issues"
+  },
+  "homepage": "https://github.com/nilsreich/my-navbar#readme",
   "dependencies": {
-    "lit-element": "^2.0.1",
+    "lit-element": "^2.0.1"
+  },
+  "devDependencies": {
     "rollup-plugin-node-resolve": "^4.0.0",
     "rollup-plugin-replace": "^2.1.0",
     "rollup-plugin-terser": "^4.0.4"
