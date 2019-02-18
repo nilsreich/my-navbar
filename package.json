@@ -6,11 +6,10 @@
   "browser": "build/my-navbar.js",
   "module": "src/my-navbar.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "build": "npx tsc",
-    "bundle": "rollup -c",
-    "dev": "tsc -p tsconfig.json -w"
-  },
+    "bundle": "rollup -c"
+    },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nilsreich/my-navbar.git"
