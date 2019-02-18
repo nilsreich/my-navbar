@@ -6,7 +6,7 @@
   "browser": "build/my-navbar.js",
   "module": "src/my-navbar.js",
   "scripts": {
-    "test": "mocha",
+    "test": "./node_modules/.bin/mocha",
     "build": "npx tsc",
     "bundle": "rollup -c"
     },
