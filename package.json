@@ -8,7 +8,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx tsc",
-    "bundle": "rollup -c"
+    "bundle": "rollup -c",
+    "dev": "tsc -p tsconfig.json -w"
   },
   "repository": {
     "type": "git",

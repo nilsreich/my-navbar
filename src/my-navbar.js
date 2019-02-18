@@ -1,31 +1,29 @@
 import { LitElement, html } from 'lit-element';
-
 class MyNavbar extends LitElement {
-
     static get properties() {
         return {
             appbar_ypos: { type: Number },
             scrollpos: { type: Number }
         };
     }
-
     firstUpdated() {
         if (window.pageYOffset > 0) {
-            this.appbar_ypos = "-65px"
-        } else {
-            this.appbar_ypos = "0"
+            this.appbar_ypos = "-65px";
+        }
+        else {
+            this.appbar_ypos = "0";
         }
     }
     boundListener() {
         let a = window.pageYOffset;
         if (a < this.scrollpos) {
             this.appbar_ypos = "0";
-        } else {
+        }
+        else {
             this.appbar_ypos = "-65px";
         }
         this.scrollpos = a;
     }
-
     connectedCallback() {
         super.connectedCallback();
         document.addEventListener('scroll', this.boundListener.bind(this));
@@ -34,9 +32,8 @@ class MyNavbar extends LitElement {
         document.removeEventListener('scroll', this.boundListener.bind(this));
         super.disconnectedCallback();
     }
-
     render() {
-        return html`
+        return html `
 <style>
     :host {
         position: sticky;
@@ -69,5 +66,4 @@ class MyNavbar extends LitElement {
 </ul>`;
     }
 }
-
 customElements.define('my-navbar', MyNavbar);
