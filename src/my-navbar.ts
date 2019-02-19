@@ -1,19 +1,21 @@
 import { LitElement, html } from 'lit-element';
+import {searchIcon, navIcon, menuIcon, favoriteIcon} from './my-icons';
 
 class MyNavbar extends LitElement {
 
     static get properties() {
         return {
             appbar_ypos: { type: Number },
-            scrollpos: { type: Number }
+            scrollpos: { type: Number },
+            layer:{type:String}
         };
     }
 
     firstUpdated() {
         if (window.pageYOffset > 0) {
-            this.appbar_ypos = "-65px"
+            this.appbar_ypos = "-165px"
         } else {
-            this.appbar_ypos = "0"
+            this.appbar_ypos = "0";
         }
     }
     boundListener() {
@@ -21,9 +23,14 @@ class MyNavbar extends LitElement {
         if (a < this.scrollpos) {
             this.appbar_ypos = "0";
         } else {
-            this.appbar_ypos = "-65px";
+            this.appbar_ypos = "-165px";
         }
         this.scrollpos = a;
+        if (a>0){
+            this.layer = "0px 0px 8px 0px #888888";
+        } else { 
+            this.layer = "";
+        }
     }
 
     connectedCallback() {
@@ -45,29 +52,44 @@ class MyNavbar extends LitElement {
         top:${this.appbar_ypos};
         transition: top 0.3s;
         display: block;
-        background: white;
-        height:50px;
-        box-shadow: 0px 0px 8px 0px #888888;
+        background: #6200ea;
+        height:60px;
+        box-shadow:${this.layer};
+        display: flex;
+        justify-content: space-between;
+    }
+    div{
+        margin:18px;
+    }
+    .title {
+        font-size:18px;
+        color:white;
+        flex-grow: 1}
+    
+    @media only screen and (max-width: 500px) {
+  .action2 {
+    display:none;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .action1 {
+    display:none;
+  }
+}
+@media only screen and (max-width: 350px) {
+  :host {
+    height:90px;
+  }
+}
 
-    }
-    ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-    li {
-            float: left;
-            padding: 8px;
-        }
-    .my-text {
-        font-size: 30%
-    }
 </style>
-<ul>
-  <li><a href="#home"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></a></li>
-  <li><a href="#news"><slot name="my-text" class="my-text">My default text</slot></a></li>
-</ul>`;
-    }
+<div class="nav">${navIcon}</div>
+<div class="title"><slot name="my-text" >AppBar for Content</slot></div>
+<div class="action1"><slot name="action1">${favoriteIcon}</slot></div>
+<div class="action2"><slot name="action2">${searchIcon}</slot></div>
+<div class="menu">${menuIcon}</div>
+`;
+}
 }
 
 customElements.define('my-navbar', MyNavbar);
